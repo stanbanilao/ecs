@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
@@ -29,7 +30,7 @@ export function ArrowIcon() {
 
 export function Logo({ light = false, kind = "review" }: { light?: boolean; kind?: SiteKind }) {
   const site = sites[kind];
-  return <a className={`brand ${light ? "brand-light" : ""}`} href={site.home} aria-label={`${site.title} ${site.subtitle} home`}><span className="brand-symbol"><span>{site.code[0]}</span><i>{site.code[1]}</i></span><span className="brand-words"><strong>{site.title}</strong><small>{site.subtitle}</small></span></a>;
+  return <Link className={`brand ${light ? "brand-light" : ""}`} href={site.home} aria-label={`${site.title} ${site.subtitle} home`}><span className="brand-symbol"><span>{site.code[0]}</span><i>{site.code[1]}</i></span><span className="brand-words"><strong>{site.title}</strong><small>{site.subtitle}</small></span></Link>;
 }
 
 function ServicesMenu() {
@@ -50,10 +51,10 @@ export function SiteHeader() {
   return <>
     <div className={`topline topline-${kind}`}><div className="shell"><p>{site.line}</p><a href={`tel:${site.phone}`}><PhoneIcon /> <span>{site.displayPhone}</span><em>Temporary number</em></a></div></div>
     <header className={`site-header header-${kind}`}><div className="shell header-inner"><Logo kind={kind} />
-      <nav aria-label="Primary navigation">{navItems.map(([label, href]) => <a key={href} href={href}>{label}</a>)}{kind === "review" ? <ServicesMenu /> : <a className="back-to-main" href="/">Debt Review Site</a>}</nav>
+      <nav aria-label="Primary navigation">{navItems.map(([label, href]) => <a key={href} href={href}>{label}</a>)}{kind === "review" ? <ServicesMenu /> : <Link className="back-to-main" href="/">Debt Review Site</Link>}</nav>
       <a className="call-cta" href={`tel:${site.phone}`} aria-label="Request a call"><span className="call-icon"><PhoneIcon /></span><span><small>Talk to our team</small>Request a call</span></a>
       <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>{open && <div className="mobile-menu">{navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}{kind === "review" ? <><span className="mobile-section-label">Services</span><a href="/services/removal">Debt Review Removal</a><a href="/services/mediation">Debt Mediation</a></> : <a href="/">Return to Debt Review site</a>}<a className="mobile-call" href={`tel:${site.phone}`}><PhoneIcon /> Request a call</a></div>}</header>
+    </div>{open && <div className="mobile-menu">{navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}{kind === "review" ? <><span className="mobile-section-label">Services</span><a href="/services/removal">Debt Review Removal</a><a href="/services/mediation">Debt Mediation</a></> : <Link href="/">Return to Debt Review site</Link>}<a className="mobile-call" href={`tel:${site.phone}`}><PhoneIcon /> Request a call</a></div>}</header>
   </>;
 }
 
@@ -65,7 +66,7 @@ export function SiteFooter() {
   return <footer className={`site-footer footer-${kind}`}><div className="shell footer-main">
     <div className="footer-brand"><Logo light kind={kind} /><p>{description}</p><span className="pending-tag">Registration details to be supplied</span></div>
     <div><h3>{kind === "review" ? "Debt Review" : site.subtitle}</h3>{navItems.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</div>
-    <div><h3>{kind === "review" ? "Specialist services" : "Connected sites"}</h3>{kind === "review" ? <><a href="/services/removal">Debt Review Removal</a><a href="/services/mediation">Debt Mediation</a></> : <><a href="/">Exclusive Credit Solutions</a><a href={kind === "removal" ? "/services/mediation" : "/services/removal"}>{kind === "removal" ? "Debt Mediation" : "Debt Review Removal"}</a></>}</div>
+    <div><h3>{kind === "review" ? "Specialist services" : "Connected sites"}</h3>{kind === "review" ? <><a href="/services/removal">Debt Review Removal</a><a href="/services/mediation">Debt Mediation</a></> : <><Link href="/">Exclusive Credit Solutions</Link><a href={kind === "removal" ? "/services/mediation" : "/services/removal"}>{kind === "removal" ? "Debt Mediation" : "Debt Review Removal"}</a></>}</div>
     <div><h3>Temporary contact</h3><a href={`tel:${site.phone}`}>{site.displayPhone}</a><a href={`mailto:${site.email}`}>{site.email}</a><p>1 Example Avenue<br />Sandton, Gauteng, 2196</p></div>
   </div><div className="shell footer-legal"><p>© 2026 {site.title} {site.subtitle}</p><p>Information is general and does not guarantee eligibility or a particular outcome. Final legal, registration and contact details are pending.</p></div></footer>;
 }

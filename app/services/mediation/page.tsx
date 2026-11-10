@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowIcon, ContactBand, PageIntro } from "@/components/site-chrome";
+import { ContactBand, PageIntro } from "@/components/site-chrome";
 
 export const metadata: Metadata = { title: "Debt Mediation | Exclusive Credit Solutions", description: "Structured support for debt-related disputes, communication and practical resolution discussions." };
 
