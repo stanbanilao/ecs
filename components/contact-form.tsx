@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowIcon } from "@/components/site-chrome";
 
-export function ContactForm({ email = "info@exclusivecreditsolutions.co.za", serviceLabel = "Debt Review" }: { email?: string; serviceLabel?: string }) {
+export function ContactForm({ email = "removal@exclusiveremovals.co.za", serviceLabel = "Debt Review Removal" }: { email?: string; serviceLabel?: string }) {
   const [sent, setSent] = useState(false);
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();

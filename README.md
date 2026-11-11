@@ -5,8 +5,7 @@ ready for independent deployment on Vercel.
 
 ## Services and routes
 
-- Debt Review: `/` and `/services/debt-review`
-- Debt Review Removal: `/services/removal`
+- Debt Review Removal: `/`, `/about`, `/faq`, `/contact`
 - Debt Mediation: `/services/mediation`
 - About, FAQs and Contact pages for the main site and service microsites
 

@@ -8,7 +8,6 @@ const routes = [
   "app/faq/page.tsx",
   "app/contact/page.tsx",
   "app/services/page.tsx",
-  "app/services/debt-review/page.tsx",
   "app/services/removal/page.tsx",
   "app/services/removal/about/page.tsx",
   "app/services/removal/faq/page.tsx",
@@ -28,6 +27,16 @@ test("shared contact actions remain present", async () => {
   assert.match(chrome, /wa\.me/);
   assert.match(chrome, /tel:/);
   assert.match(chrome, /FloatingActions/);
+});
+
+test("Debt Review Removal is the main website and Mediation is the only menu service", async () => {
+  const home = await readFile("app/page.tsx", "utf8");
+  const chrome = await readFile("components/site-chrome.tsx", "utf8");
+  assert.match(home, /Debt Review Removal support/);
+  assert.doesNotMatch(chrome, /href="\/services\/debt-review"/);
+  assert.doesNotMatch(chrome, /href="\/services\/removal"/);
+  assert.match(chrome, /href="\/services\/mediation"/);
+  await assert.rejects(access("app/services/debt-review/page.tsx"));
 });
 
 test("the project no longer depends on ChatGPT Sites or Vinext", async () => {
