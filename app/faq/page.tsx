@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import { ContactBand, PageIntro } from "@/components/site-chrome";
 
-export const metadata: Metadata = { title: "Debt Review FAQs | Exclusive Credit Solutions", description: "Frequently asked questions about South African Debt Review." };
+export const metadata: Metadata = { title: "Debt Review Removal FAQs | Exclusive Credit Solutions", description: "Frequently asked questions about Debt Review Removal in South Africa." };
 
 const questions = [
-  ["What is Debt Review?", "Debt Review is a formal, voluntary debt-relief process under the National Credit Act for over-indebted consumers. It begins with an affordability assessment and can lead to a restructured repayment proposal."],
-  ["How do I know if I may be over-indebted?", "A formal assessment considers income, essential living costs and monthly debt obligations. Common warning signs include missed payments, using credit for necessities and having too little left for living expenses."],
-  ["Can I obtain new credit while under Debt Review?", "Consumers generally cannot take further credit while under Debt Review. This and the other implications should be fully explained before an application is made."],
-  ["Does Debt Review write off my debt?", "No. Debt Review does not erase valid debt. It is intended to create a structured repayment route based on verified affordability and the formal process."],
-  ["Will creditors stop contacting me?", "The communication process changes once the formal notices and process apply, but the exact protections and responsibilities depend on the stage and compliance with the arrangement."],
-  ["What documents are normally required?", "Common documents include identification, proof of income, recent bank statements, living-expense information and statements or details for credit obligations."],
-  ["Can I leave Debt Review whenever I want?", "Exit options depend on the stage of the process and whether a court order or determination exists. Removal is a separate specialist service available under the Services menu."],
+  ["Can Debt Review Removal be guaranteed?", "No. Eligibility and the correct route must be established from your status, documents, settlement position and any court order."],
+  ["Can I remove the flag myself?", "You may dispute incorrect credit-bureau information directly. Lawful clearance from debt review normally requires the appropriate process and supporting documentation, and court involvement may be necessary in some cases."],
+  ["Does paying my debts remove the flag automatically?", "No. Settlement may be an important requirement, but the proper clearance process and credit-bureau updates still need to be completed and verified."],
+  ["What if a court order already exists?", "A court route may be required. A debt counsellor cannot simply cancel or withdraw an existing court order."],
+  ["What if only my home loan remains?", "You may potentially qualify for a clearance route when the relevant requirements are met and the remaining home-loan position is compliant. Your documents must be assessed."],
+  ["Which documents may be needed?", "Common records include identification, a recent credit report, paid-up letters, payment records, the court order and debt-counsellor correspondence."],
+  ["How long does removal take?", "No responsible timeline can be guaranteed before the case, required documents and third-party processing steps are understood."],
 ];
 
 export default function FAQPage() {
-  return <main><PageIntro eyebrow="Debt Review FAQs" title="Understand Debt Review before you decide." lead="These answers provide general information about the main Exclusive Credit Solutions service. Your financial position still needs an individual assessment." theme="navy" />
-    <section className="faq-page"><div className="shell"><div className="faq-group"><aside><span>01</span><h2>Debt Review questions</h2></aside><div className="faq-list">{questions.map(([q,a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></div></section>
-    <ContactBand title="Ask us about Debt Review." />
+  return <main><PageIntro eyebrow="Removal FAQs" title="Understand the removal process before paying for a promise." lead="These answers provide general information. Your own status and documents still need an individual eligibility assessment." theme="navy" />
+    <section className="faq-page"><div className="shell"><div className="faq-group"><aside><span>01</span><h2>Removal questions</h2></aside><div className="faq-list">{questions.map(([q,a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></div></section>
+    <ContactBand title="Ask about your removal eligibility." />
   </main>;
 }
